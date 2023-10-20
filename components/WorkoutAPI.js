@@ -4,23 +4,19 @@ import { View, Text, TextInput } from "react-native";
 
 const config = {
   headers: {
-    "x-app-id": "0b0cda94",
-    "x-app-key": "283d765c489fec4b03695ed475851520",
+    "X-Api-Key": "PtsipzlaNRb9BVDM17r5SQ==ILmaJ1QKB09VqgaD",
   },
 };
 
-// const baseUrl = "https://trackapi.nutritionix.com/v2/natural/nutrients";
-const baseUrl = "https://trackapi.nutritionix.com/v2/search/instant";
+// const baseUrl = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
+// const baseUrl = "https://api.api-ninjas.com/v1/exercises?type=cardio";
 
-const SearchNutrient = () => {
+const WorkoutAPI = () => {
   const [food, setFood] = useState(null);
   console.log("test");
   axios
-    .post(
+    .get(
       baseUrl,
-      {
-        query: "chicken",
-      },
       config
     )
     .then((response) => {
@@ -29,10 +25,10 @@ const SearchNutrient = () => {
     .catch(function (error) {
       console.log(error);
     });
-  console.log(food);
-  const onChangeFood = () => {
-    return;
-  };
+  // console.log(food);
+  // const onChangeFood = () => {
+  //   return;
+  // };
 
   return (
     <View>
@@ -45,4 +41,4 @@ const SearchNutrient = () => {
   );
 };
 
-export default SearchNutrient;
+export default WorkoutAPI;
