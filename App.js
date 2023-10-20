@@ -1,9 +1,19 @@
-import {NavigationContainer} from "@react-navigation/native";
+import { SelectProvider } from "@mobile-reality/react-native-select-pro";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function App() {
+import { UserDataProvider } from "./contexts/UserDataContext";
+import MainNavigation from "./navigation/MainNavigation";
+
+const App = () => {
   return (
-      <NavigationContainer>
-
-      </NavigationContainer>
+    <UserDataProvider>
+      <SelectProvider>
+        <NavigationContainer>
+          <MainNavigation />
+        </NavigationContainer>
+      </SelectProvider>
+    </UserDataProvider>
   );
-}
+};
+
+export default App;

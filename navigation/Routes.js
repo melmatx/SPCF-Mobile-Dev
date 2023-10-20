@@ -1,5 +1,7 @@
 const Routes = {
-  PERSONAL_INFO: "Personal Info",
+  LANDING: "Landing",
+  WORKOUT: "Workout",
+  NUTRITION: "Nutrition",
 };
 
 export default Routes;
