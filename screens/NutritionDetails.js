@@ -1,53 +1,55 @@
 import React from "react";
-import { ImageBackground, ScrollView, Text, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 import Colors from "../styles/Colors";
 
 const NutritionDetails = ({ route }) => {
   const { item } = route.params;
-  const insets = useSafeAreaInsets();
 
   const capitalizedFoodName =
     item.food_name[0].toUpperCase() + item.food_name.slice(1);
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.gray }}>
       <ScrollView>
-        <ImageBackground
+        <Text
+          style={{
+            color: Colors.green,
+            textAlign: "center",
+            fontSize: 35,
+            marginVertical: 15,
+            fontWeight: "500",
+          }}
+        >
+          {capitalizedFoodName}
+        </Text>
+        <View
+          style={{
+            height: 2,
+            backgroundColor: Colors.green,
+            marginBottom: 40,
+            marginHorizontal: 20,
+            borderRadius: 5,
+          }}
+        />
+        <Image
           source={{ uri: item.photo.highres }}
           style={{
             padding: 20,
-            paddingTop: insets.top + 60,
-            height: 200,
-            justifyContent: "center",
-            shadowOpacity: 0.5,
-            shadowOffset: { height: 1, width: 0 },
-            backgroundColor: "white",
+            height: 400,
+            width: 350,
+            borderRadius: 20,
+            alignSelf: "center",
+            shadowOpacity: 0.8,
+            shadowOffset: { height: 5, width: 5 },
+            shadowRadius: 5,
           }}
-        >
-          <Text
-            style={{
-              color: "white",
-              fontSize: 35,
-              marginLeft: 10,
-              marginVertical: 15,
-              shadowOpacity: 0.8,
-              shadowOffset: {
-                height: 1,
-                width: 0,
-              },
-            }}
-          >
-            {capitalizedFoodName}
-          </Text>
-        </ImageBackground>
+        />
         <View
           style={{
-            margin: 20,
+            marginBottom: 20,
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: Colors.gray,
             marginHorizontal: 20,
             borderRadius: 20,
             height: 250,
@@ -55,31 +57,55 @@ const NutritionDetails = ({ route }) => {
             columnGap: 20,
           }}
         >
-          <View style={{ rowGap: 20 }}>
-            <View style={{ flexDirection: "row", columnGap: 40 }}>
+          <View style={{ rowGap: 20, flex: 1 }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
               <View>
-                <Text style={{ fontWeight: "bold", fontSize: 20 }}>120g</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_protein}g
+                </Text>
+                <Text>Protein</Text>
+              </View>
+              <View>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_calories}g
+                </Text>
                 <Text>Calories</Text>
               </View>
               <View>
-                <Text style={{ fontWeight: "bold", fontSize: 20 }}>120g</Text>
-                <Text>Total Fat</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_total_carbohydrate}g
+                </Text>
+                <Text>Carbohydrates</Text>
               </View>
             </View>
-            <View style={{ flexDirection: "row", columnGap: 40 }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
               <View>
-                <Text style={{ fontWeight: "bold", fontSize: 20 }}>120g</Text>
-                <Text>Saturated Fat</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_sodium}g
+                </Text>
+                <Text>Sodium</Text>
               </View>
               <View>
-                <Text style={{ fontWeight: "bold", fontSize: 20 }}>120g</Text>
-                <Text>Cholesterol</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_total_fat}g
+                </Text>
+                <Text>Total Fat</Text>
+              </View>
+              <View>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  {item.nf_saturated_fat}g
+                </Text>
+                <Text>Saturated Fat</Text>
               </View>
             </View>
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

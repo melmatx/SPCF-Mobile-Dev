@@ -3,6 +3,7 @@ const Routes = {
   WORKOUT: "Workout",
   NUTRITION: "Nutrition",
   NUTRITION_DETAILS: "Nutrition Details",
+  WORKOUT_DETAILS: "Workout Details",
 };
 
 export default Routes;

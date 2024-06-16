@@ -5,6 +5,7 @@ import Landing from "../screens/Landing";
 import Nutrition from "../screens/Nutrition";
 import NutritionDetails from "../screens/NutritionDetails";
 import Workout from "../screens/Workout";
+import WorkoutDetails from "../screens/WorkoutDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,11 @@ const MainNavigation = () => (
         <Stack.Screen
           name={Routes.NUTRITION_DETAILS}
           component={NutritionDetails}
+          options={{ headerTitle: "", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name={Routes.WORKOUT_DETAILS}
+          component={WorkoutDetails}
           options={{ headerTitle: "", headerBackTitle: "Back" }}
         />
       </Stack.Group>
